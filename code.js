@@ -1,7 +1,7 @@
 const div = document.querySelector('div');
 const divArray = [...document.querySelectorAll('div')];
 const randomPicBtn = document.querySelector('.random');
-const image = document.querySelector('section.picture');
+const image = document.querySelector('.picture');
 
 let imagesList = [{
         img: "img/0.jpg",
@@ -102,43 +102,26 @@ let imagesList = [{
 ];
 
 
-// let randomIndex = () => {
-//     image.style.animation = " ";
-//     return Math.floor(Math.random() * imagesList.length);
-
-// }
-
-// let indexValue = randomIndex();
-
-
-// const choosePicture = () => {
-
-//     indexValue = randomIndex();
-//     image.style.backgroundImage = `url(img/${indexValue}.jpg)`;
-//     console.log(`url(img/img${indexValue}.jpg)`);
-//     image.style.animation = " letters .6s";
-// }
-
-
-// randomPicBtn.addEventListener('click', choosePicture);
-
-// const removeClass = () => {
-//     image.classList.remove('randomAnim');
-// }
 
 let randomIndex = () => {
-    if (image.classList.contains('randomAnim')) {
-        image.classList.remove('randomAnim');
-    } else {
-        let indexValue = Math.floor(Math.random() * imagesList.length);
-        image.style.backgroundImage = `url(img/${indexValue}.jpg)`;
-        console.log(`url(img/img${indexValue}.jpg)`);
-        image.classList.add('randomAnim');
-    }
+    // if (image.classList.contains('randomAnim')) {
+    //     image.classList.remove('randomAnim');
+    // } else {
+    let indexValue = Math.floor(Math.random() * imagesList.length);
+    image.style.backgroundImage = `url(img/${indexValue}.jpg)`;
+    console.log(`url(img/img${indexValue}.jpg)`);
+    image.classList.add('randomAnim');
+    // }
+    setTimeout(clearClass, 500);
+
+
 }
 
 
+const clearClass = () => {
+    image.classList.remove('randomAnim');
 
+}
 
 // randomPicBtn.addEventListener('click', removeClass);
 randomPicBtn.addEventListener('click', randomIndex);
